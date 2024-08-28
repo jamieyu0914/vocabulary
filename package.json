@@ -1,0 +1,27 @@
+{
+  "name": "vocabulary",
+  "version": "1.0.0",
+  "description": "Try using Amazon DynamoDB and AWS AppSync within a JavaScript framework through the GraphQL API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamieyu0914/vocabulary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamieyu0914/vocabulary/issues"
+  },
+  "homepage": "https://github.com/jamieyu0914/vocabulary#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "lite-server": "^2.6.1"
+  }
+}
