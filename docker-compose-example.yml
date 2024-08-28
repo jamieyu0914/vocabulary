@@ -5,10 +5,14 @@ services:
     ports:
       - "5000:5000"
     volumes:
+      - .:/vocabulary
       - ./src:/usr/share/nginx/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - frontend-network
+
+    tty: true
+    stdin_open: true
 
 networks:
   frontend-network:

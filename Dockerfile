@@ -1,6 +1,9 @@
 # Use the official Nginx base image
 FROM nginx:alpine
 
+# Install bash
+RUN apk add --no-cache bash
+
 # Copy the built application files to the Nginx default static directory
 COPY ./src /usr/share/nginx/html
 
