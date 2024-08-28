@@ -11,7 +11,9 @@ COPY package*.json ./
 RUN npm init -y \
     && mkdir -p src/js src/css src/assets \
     && touch src/index.html src/css/styles.css src/js/app.js \
-    && npm install --save-dev @babel/core @babel/cli @babel/preset-env
+    && npm install --save-dev @babel/core @babel/cli @babel/preset-env \
+    && npm install aws-amplify \
+    && npm install dotenv
 
 # Copy all source code
 COPY . .
