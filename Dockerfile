@@ -5,31 +5,27 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json and install dependencies
-COPY package*.json ./
+COPY ./vocabulary/package*.json ./
+RUN npm install 
 
-# Initialize npm, create directories, and install Babel dependencies
-RUN npm init -y \
-    && mkdir -p src/js src/css src/assets \
-    && touch src/index.html src/css/styles.css src/js/app.js \
-    && npm install --save-dev @babel/core @babel/cli @babel/preset-env
+# Copy all source code and build the application
+COPY vocabulary ./
+RUN npm run build
 
-# Copy all source code
-COPY . .
-
-# Use the official Nginx base image
+# Use the official Nginx base image for the final stage
 FROM nginx:alpine
 
-# Install bash
+# Install bash (optional, if you need bash for some reason)
 RUN apk add --no-cache bash
-
-# Copy the built application files to the Nginx default static directory
-COPY ./src /usr/share/nginx/html
 
 # Copy custom Nginx configuration file, if you have one
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
+# Copy the built application files to the Nginx default static directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
 # Expose the default HTTP port for Nginx
-EXPOSE 3000
+EXPOSE 5000
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
