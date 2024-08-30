@@ -20,3 +20,6 @@ key.pub
 *.csv
 *.csv#
 docker-compose.yml
+.terraform*
+terraform*
+main.tf

@@ -23,3 +23,15 @@ npm run dev
 
 # aws cognito
 You need to create a user pool in AWS Cognito and configure the following environment variables in the `.env.example` file.
+
+# terraform
+You can create or manage the AWS resources by running the following command:
+```bash
+terraform init
+terraform apply
+```
+Or you can destroy the AWS resources by running the following command:
+```bash
+terraform destroy
+```
+Also, you can refer to the `main.tf.example` file to adjust your own AWS resources.
