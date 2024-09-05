@@ -25,3 +25,7 @@ docker-compose up
 # stop the docker-compose
 docker-compose down
 ```
+
+# localhost
+You can access the application through the following link:
+[localhost](http://localhost:5000/)
